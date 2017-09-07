@@ -1,5 +1,4 @@
-num=0
-while num!= -1:
+while (True):
     num= int(input("Enter a number:"))
     if num==-1:
         break
