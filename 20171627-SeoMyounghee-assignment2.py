@@ -9,4 +9,3 @@ while (True):
         for i in range(1, num+1):
             fac=i*fac
         print(str(num)+"!="+str(fac))
-
