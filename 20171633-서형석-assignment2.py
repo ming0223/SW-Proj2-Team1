@@ -1,11 +1,11 @@
-n = -1
-
-while(n < 0) :
+while(1) :
 	n = int(input("Enter a number: "))
 
-answer = 1
+	if(n == -1) : break	
 
-for i in range(1, n+1):
-	answer = answer * i;
+	answer = 1
 
-print(str(n)+"! = "+str(answer))
+	for i in range(1, n+1):
+		answer = answer * i;
+
+	print(str(n)+"! = "+str(answer))
