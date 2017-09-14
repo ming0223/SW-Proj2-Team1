@@ -76,6 +76,22 @@ def doScoreDB(scdb):
             except IndexError:
                 print("이름과 추가할 점수를 입력해주세요")
                 continue
+        elif parse[0] == 'FindNA':
+            try :
+                for p in scdb:
+                    if p['Name'] == parse[1] and p['Score'] == parse[2]:
+                        print(p)
+            except IndexError :
+                print("찾을 이름과 나이를 입력해주세요")
+                continue
+        elif parse[0] == 'Best':
+            Max = 0
+            for p in scdb:
+                if int(p['Score']) > Max :
+                    Max = int(p['Score'])
+            for p in scdb:
+                if int(p['Score']) == Max :
+                    print(p)
         else:
             print("Invalid command: " + parse[0])
 
@@ -88,4 +104,5 @@ def showScoreDB(scdb, keyname):
 scoredb = readScoreDB()
 doScoreDB(scoredb)
 writeScoreDB(scoredb)
+
 
