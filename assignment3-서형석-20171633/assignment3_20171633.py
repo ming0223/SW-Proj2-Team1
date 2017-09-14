@@ -41,10 +41,10 @@ def doScoreDB(scdb):
                 continue
         elif parse[0] == 'del':
             try:
-                for p in scdb:
+                new = scdb[:]
+                for p in new:
                     if p['Name'] == parse[1]:
                          scdb.remove(p)
-                         continue
             except IndexError:
                 print("삭제하실 이름을 입력해주세요")
                 continue
@@ -82,8 +82,6 @@ def showScoreDB(scdb, keyname):
             print(attr + "=" + p[attr], end=' ')
         print()
 
-
 scoredb = readScoreDB()
 doScoreDB(scoredb)
 writeScoreDB(scoredb)
-
