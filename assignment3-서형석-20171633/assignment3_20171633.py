@@ -1,6 +1,6 @@
 import pickle
 
-dbfilename = 'assignment_20171633.dat'
+dbfilename = 'assignment3_20171633.dat'
 
 def readScoreDB():
     try:
@@ -29,17 +29,17 @@ def writeScoreDB(scdb):
 
 def doScoreDB(scdb):
     while (True):
-        inputstr = (input("Score DB > "))
+        inputstr = (input("Score DB > ")) #입력
         if inputstr == "": continue
         parse = inputstr.split(" ")
-        if parse[0] == 'add':
+        if parse[0] == 'add': #새로운 사람 추가
             try :
                 record = {'Name': parse[1], 'Age': parse[2], 'Score': parse[3]}
                 scdb += [record]
             except IndexError:
                 print("이름, 나이, 점수 순으로 다시 입력해주세요")
                 continue
-        elif parse[0] == 'del':
+        elif parse[0] == 'del': #지정한 사람 삭제
             try:
                 new = scdb[:]
                 for p in new:
@@ -48,12 +48,12 @@ def doScoreDB(scdb):
             except IndexError:
                 print("삭제하실 이름을 입력해주세요")
                 continue
-        elif parse[0] == 'show':
+        elif parse[0] == 'show': #전체 내용
             sortKey = 'Name' if len(parse) == 1 else parse[1]
             showScoreDB(scdb, sortKey)
-        elif parse[0] == 'quit':
+        elif parse[0] == 'quit': #프로그램 종료
             break
-        elif parse[0] == 'find':
+        elif parse[0] == 'find': #주어진 사람 찾기
             try:
                 Check = False
                 for p in scdb:
@@ -65,7 +65,7 @@ def doScoreDB(scdb):
             except IndexError:
                 print("찾으실 이름을 입력해주세요")
                 continue
-        elif parse[0] == 'inc':
+        elif parse[0] == 'inc': #주어진 사람 찾아서 Score를 amout만큼 더해줌
             try:
                 for p in scdb:
                     if p['Name'] == parse[1]:
@@ -88,3 +88,4 @@ def showScoreDB(scdb, keyname):
 scoredb = readScoreDB()
 doScoreDB(scoredb)
 writeScoreDB(scoredb)
+
