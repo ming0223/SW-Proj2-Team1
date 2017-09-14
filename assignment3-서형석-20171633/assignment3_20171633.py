@@ -69,7 +69,10 @@ def doScoreDB(scdb):
             try:
                 for p in scdb:
                     if p['Name'] == parse[1]:
-                        p['Score'] = str(int(p['Score']) + int(parse[2]))
+                        if(p['Score'] + int(parse[2]) < 0) :
+                            p['Score'] = "0"
+                        else :
+                            p['Score'] = str(int(p['Score']) + int(parse[2]))
             except IndexError:
                 print("이름과 추가할 점수를 입력해주세요")
                 continue
