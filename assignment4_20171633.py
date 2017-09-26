@@ -27,6 +27,7 @@ while(True) :
 			continue
 	except ValueError:
 		print("숫자로 입력해주세요")
+		continue
 
 	print("팩토리얼로 구현한 결과 조합의 수: ", (int)(Factorial(n) / (Factorial(m) * Factorial(n - m))))
 
