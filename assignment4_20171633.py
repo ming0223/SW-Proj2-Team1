@@ -25,7 +25,7 @@ while(True) :
 		elif (m > n):
 			print("m이 n보다 큽니다 다시 입력해 주세요")
 			continue
-	except IndexError:
+	except ValueError:
 		print("숫자로 입력해주세요")
 
 	print("팩토리얼로 구현한 결과 조합의 수: ", (int)(Factorial(n) / (Factorial(m) * Factorial(n - m))))
