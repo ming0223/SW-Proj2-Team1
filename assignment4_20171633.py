@@ -15,12 +15,13 @@ while(True) :
 		if (n == -1):
 			break
 		elif (n < -1):
-			print("")
+			print("올바르지 않은 값입니다 다시 입력해주세요")
 			continue
 		m = int(input("Enter m: "))
 		if (m == -1):
 			break
 		elif (m < -1):
+			print("올바르지 않은 값입니다 다시 입력해주세요")
 			continue
 		elif (m > n):
 			print("m이 n보다 큽니다 다시 입력해 주세요")
