@@ -1,12 +1,11 @@
-def factorial(n, m):
+def combination(n, m):
     if (n == m):
         return result + 1
     elif (m == 0):
         return result +1
     else:
-        return factorial(n - 1, m) + factorial(n - 1, m - 1)
-        print(factorial(n, m))
-
+        return combination(n - 1, m) + combination(n - 1, m - 1)
+    
 def solution(n, m):
     num1 = 1
     num2 = 1
