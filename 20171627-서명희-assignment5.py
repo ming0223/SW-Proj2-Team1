@@ -1,7 +1,7 @@
 import time
 import random
 
-def iterfibo(n):
+def iterfibo(n):	#반복적인 피보나치수열 함수
     if n<= 1:
         return n
     else:
@@ -11,7 +11,7 @@ def iterfibo(n):
             b=a+b
             a=k
         return b
-def fibo(n):
+def fibo(n):	 # 재귀적 피보나치수열 함수
 	if n <= 1:
 		return n
 	return fibo(n - 1) + fibo(n - 2)
