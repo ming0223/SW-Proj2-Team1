@@ -3,7 +3,7 @@ def fibo(n):
     if n<=1:
         return n
     return fibo(n-1) + fibo(n-2)
-def iterfibo(n): #재귀함수 쓰지말고
+def iterfibo(n):
     before =0
     current = 1
 
