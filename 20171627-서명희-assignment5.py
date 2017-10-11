@@ -1,5 +1,4 @@
 import time
-import random
 
 def iterfibo(n):	#반복적인 피보나치수열 함수
     if n<= 1:
