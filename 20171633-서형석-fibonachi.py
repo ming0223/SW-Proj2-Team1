@@ -1,3 +1,5 @@
+import time
+
 def iterfibo(n) :
     f1 = 0
     f2 = 1
@@ -27,7 +29,11 @@ while True:
     nbr = int(input("Enter a number: "))
     if nbr == -1:
         break
+    ts = time.time()
     fibonumber = iterfibo(nbr)
-    print("재귀로 구한 것이 아닌 피보나치 값 : %d" %(fibonumber))
+    ts = time.time() - ts
+    print("IterFibo(%d) = %d, time %.6f" %(nbr, fibonumber, ts))
+    ts = time.time()
     fibonumber = fibo(nbr)
-    print("재귀로 구한 피보나치 값 : %d" %(fibonumber))
+    ts = time.time() - ts
+    print("Fibo(%d) = %d, time %.6f" %(nbr, fibonumber, ts))
