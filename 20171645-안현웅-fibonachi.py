@@ -1,14 +1,16 @@
 import time
 
 def fibonachi(n):
-    if n == 1:
-        return 1
-    elif n == 0:
-        return 0
+    if n <= 1:
+        return n
     else:
         return fibonachi(n-1) + fibonachi(n-2)
 
 def iterfibonachi(n):
+    if n == 1:
+        return 1
+    elif n == 0:
+        return 0
     if n <= 1:
         return n
     else:
