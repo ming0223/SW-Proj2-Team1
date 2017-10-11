@@ -2,7 +2,7 @@ import time
 
 def fibonachi(n):
     if n == 1:
-        return 0
+        return 1
     elif n == 0:
         return 0
     else:
