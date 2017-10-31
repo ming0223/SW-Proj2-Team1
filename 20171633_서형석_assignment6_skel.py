@@ -85,7 +85,7 @@ class ScoreDB(QWidget):
         elif sender.text() == "Inc" :
             self.Increase()
         elif sender.text() == "show" :
-            self.Show()
+            self.Sort()
 
     def Add(self):
         self.dict = {"Age" : int(self.editage.text()), "Name" : self.editname.text(), "Score" : int(self.editscore.text())}
@@ -93,30 +93,28 @@ class ScoreDB(QWidget):
 
         self.str = ""
 
-        for i in range(0, self.scoredb.__len__()):
-            self.str += "Age=" + self.scoredb[i].get("Age").__str__() + \
-                        ((20 - self.scoredb[i].get("Age").__str__().__len__()) * " ") \
-                        + "Name=" + self.scoredb[i].get("Name").__str__() + \
-                        ((30 - self.scoredb[i].get("Name").__len__()) * " ") + \
-                        "Score=" + self.scoredb[i].get("Score").__str__() + "\n"
-
-        self.textResult.setText(self.str)
+        self.Show()
 
     def Delete(self):
 
         self.str = ""
 
+        count = 0
+
         for i in range(0, self.scoredb.__len__()):
-            if (self.scoredb[i].get("Name") == self.editname.text()):
-                self.scoredb.pop(i)
+
+            if (self.scoredb[i - count].get("Name").__str__() == self.editname.text()):
+                del self.scoredb[i - count]
+                count += 1
             else :
-                self.str += "Age=" + self.scoredb[i].get("Age").__str__() + \
-                        ((20 - self.scoredb[i].get("Age").__str__().__len__()) * " ") \
-                        + "Name=" + self.scoredb[i].get("Name").__str__() + \
-                        ((30 - self.scoredb[i].get("Name").__len__()) * " ") + \
-                        "Score=" + self.scoredb[i].get("Score").__str__() + "\n"
+                self.str += "Age=" + self.scoredb[i - count].get("Age").__str__() + \
+                        ((20 - self.scoredb[i - count].get("Age").__str__().__len__()) * " ") \
+                        + "Name=" + self.scoredb[i - count].get("Name").__str__() + \
+                        ((30 - self.scoredb[i - count].get("Name").__len__()) * " ") + \
+                        "Score=" + self.scoredb[i - count].get("Score").__str__() + "\n"
 
         self.textResult.setText(self.str)
+
 
     def Find(self):
         self.str = ""
@@ -136,19 +134,12 @@ class ScoreDB(QWidget):
         self.str = ""
 
         for i in range(0, self.scoredb.__len__()):
-
             if (self.scoredb[i].get("Name").__str__() == self.editname.text()):
                 self.scoredb[i].update({"Score" : self.scoredb[i].get("Score") + int(self.editAmount.text())})
 
-            self.str += "Age=" + self.scoredb[i].get("Age").__str__() + \
-                        ((20 - self.scoredb[i].get("Age").__str__().__len__()) * " ") \
-                        + "Name=" + self.scoredb[i].get("Name").__str__() + \
-                        ((30 - self.scoredb[i].get("Name").__len__()) * " ") + \
-                        "Score=" + self.scoredb[i].get("Score").__str__() + "\n"
+        self.Show()
 
-        self.textResult.setText(self.str)
-
-    def Show(self):
+    def Sort(self):
         self.str = ""
 
         if (self.key_Box.currentText() == "Age"):
@@ -158,12 +149,15 @@ class ScoreDB(QWidget):
         elif (self.key_Box.currentText() == "Score"):
             self.scoredb.sort(key=itemgetter("Score"))
 
+        self.Show()
 
-        for i in range(0, self.scoredb.__len__()) :
+    def Show(self):
+
+        for i in range(0, self.scoredb.__len__()):
             self.str += "Age=" + self.scoredb[i].get("Age").__str__() + \
                         ((20 - self.scoredb[i].get("Age").__str__().__len__()) * " ") \
                         + "Name=" + self.scoredb[i].get("Name").__str__() + \
-                        ((30 - self.scoredb[i].get("Name").__len__()) * " ") +\
+                        ((30 - self.scoredb[i].get("Name").__len__()) * " ") + \
                         "Score=" + self.scoredb[i].get("Score").__str__() + "\n"
 
         self.textResult.setText(self.str)
@@ -201,8 +195,3 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = ScoreDB()
     sys.exit(app.exec_())
-
-
-
-
-
