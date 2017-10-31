@@ -147,7 +147,7 @@ class ScoreDB(QWidget):
             for attr in p:
                 temp += attr + "=" + p[attr] +"\t"
                 count+=1
-                self.ResultDisplay.setText(temp)
+        self.ResultDisplay.setText(temp)
 
 
     def Do(self):
