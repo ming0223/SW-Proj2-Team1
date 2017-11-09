@@ -74,7 +74,7 @@ class ScoreDB(QWidget):
         hbox2.addWidget(self.AmountInput)
         hbox2.addWidget(Key)
         hbox2.addWidget(self.KeySort)
-
+ 
         hbox3 = QHBoxLayout()
         hbox.addStretch(1)
         hbox3.addWidget(self.AddButton)
