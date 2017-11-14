@@ -13,16 +13,6 @@ def factorial(numStr):  #math 모듈이 아닌 for문을 이용한 계산
         r='Error!'
     return str(r)
 
-    # try:
-    #      if numStr < 171:
-    #          n = int(eval(numStr))       #괄호 안의 수도 계산되게 수정
-    #          r = str(fact(n))
-    #      else:
-    #          r= 'infinite'
-    #  except:
-    #      r = 'Error!'
-    # return r
-
 def decToBin(numStr):
     try:
         n = int(eval(numStr))       #괄호 안의 수도 계산되게 수정
