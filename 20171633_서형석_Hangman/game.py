@@ -18,6 +18,7 @@ def gameMain():
         guess.display()
 
         guessedChar = input('Select a letter: ')
+        guessedChar = guessedChar.lower()
         if not(guessedChar.isalpha()):
             print('only input alphabet')
             continue
