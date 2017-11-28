@@ -28,7 +28,7 @@ class Guess:
             if character in self.secretWord :
                 count = 0
                 list = []
-                findPlace = self.secretWord.find(character, count)
+                findPlace = 0
                 while(findPlace != -1) :
                     findPlace = self.secretWord.find(character, count)
                     list.append(findPlace)
