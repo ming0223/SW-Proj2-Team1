@@ -18,6 +18,9 @@ def gameMain():
         guess.display()
 
         guessedChar = input('Select a letter: ')
+        if not(guessedChar.isalpha()):
+            print('only input alphabet')
+            continue
         if len(guessedChar) != 1:
             print('One character at a time!')
             continue
