@@ -5,9 +5,7 @@ class Guess:
         self.guessedChars = ""
         self.numTries = 0
         self.currentStatus = ""
-
-        for i in range(0, len(self.secretWord)) :
-            self.currentStatus += '_'
+        self.currentStatus = '_' * len(self.secretWord)
 
     def display(self):
 
